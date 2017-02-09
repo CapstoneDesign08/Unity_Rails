@@ -1,0 +1,33 @@
+<%= hidden_field_tag :current_id, "#{@applicant.id}"%>
+<p>
+  <strong>Challenge_Show:</strong>
+  ("<%= @applicant.name %>"님 환영합니다!)
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @challenge.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @challenge.description %>
+</p>
+
+<p>
+<%= form_for @applicant do |f| %>
+      <%= f.label :Upload_cs_File %> :
+      <%= f.file_field :attachment, accept: '.cs'  %>
+      <%= f.submit "Upload" %>
+<% end %>
+</p>
+
+
+
+<p>
+  <%= form_for(@challenge, remote: true) do |g| %>
+      <%= g.submit "Apprise", class: "Apprised" %>
+  <%end%>
+</p>
+
+<p class="result">
